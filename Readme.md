@@ -1,6 +1,6 @@
 # Lottery Data Scraper
 
-This Python application scrapes data from the California Lottery archive website and extracts the winning numbers for the Mega Millions game within a specified date range. The archive only displays data in 30 day increments. This app utilizes the Selenium web driver for dynamic web scraping and BeautifulSoup for parsing HTML content. The application allows users to specify the start and end dates for data extraction, and saves the results in JSON format.
+This Python application scrapes data from the California Lottery archive website and extracts the winning numbers for the Mega Millions game within a specified date range. The archive only displays data in 30 day increments. This app utilizes the Selenium web driver for dynamic web scraping by automating form selection for the date range selected and BeautifulSoup for parsing HTML content. The application allows users to specify the start and end dates for data extraction, and saves the results in JSON format.
 
 
 ## Installation
