@@ -1,6 +1,6 @@
 # Lottery Data Scraper
 
-This Python application scrapes data from the California Lottery archive website and extracts the winning numbers for the Mega Millions game within a specified date range. The archive only displays data in 30 day increments. This app utilizes the Selenium web driver for dynamic web scraping, BeautifulSoup for parsing HTML content, and JSON for data storage. The application allows users to specify the start and end dates for data extraction, and saves the results in JSON format.
+This Python application scrapes data from the California Lottery archive website and extracts the winning numbers for the desired lottery game within a specified date range. This app utilizes Selenium for dynamic web scraping and BeautifulSoup for parsing HTML content. 
 
 
 ## Installation
@@ -11,32 +11,26 @@ Install the required packages using:
 pip install -r requirements.txt
 ```
 
+Update path to chromedriver in `main.py`
+ 
 ## Usage
-
+To scrape the winning Powerball numbers for a specific duration (in months), you can use the following command:
 ```python
-python src/main.py
+python src/main.py --type powerball --months <number_of_months>
+```
+Alternatively, you can specify the duration in years using the --years option:
+```python
+python src/main.py --type powerball --years <number_of_years>
+```
+#### Help
+To view the available options and usage information, you can use the --help option:
+```python
+python src/main.py --help
 ```
 
-## Inputs
-In 'main.py', make the following selections:
-1. Lotto type: 
-- Powerball  
-- Powerball Double Play  
-- MEGA Millions  
-- SuperLotto Pl  
-- Fantasy 5  
-- Daily Derby  
-- Daily 4  
-- Daily 3 Midday  
-- Daily 3 Evening  
-2. Date range:  
-- Start and end date
-  * Can be datetime object or the following date format: 'MM/DD/YYYY'
-3. Chromedriver
-- Update path to chromedriver
 
 ## Additional 
-Run the following script to combine the monthly json files. 
+Run the following script to combine the monthly json files into 1 dataset for analysis. 
 ```python
 python src/combine_json.py
 ```

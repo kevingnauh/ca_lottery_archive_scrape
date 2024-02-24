@@ -1,4 +1,19 @@
 import time
+import argparse
+
+def parse_arguments():
+    parser = argparse.ArgumentParser(description='Automate form selection and scrape historical lotto results.')
+
+    parser.add_argument('--type', dest='lotto_type', required=True, choices=['all', 'powerball', 'powerball_double_play', 'mega_millions','superlotto_plus','fantasy5','daily_derby','daily4','daily3_midday','daily3_evening'],
+                        help='Specify the type of lotto.')
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument('--months', dest='months', type=int,
+                        help='Specify the number of months for the date range.')
+    group.add_argument('--years', dest='years', type=int,
+                        help='Specify the number of years for the date range.')
+
+    args = parser.parse_args()
+    return args
 
 # generate a random number to use as wait time for selenium actions
 def generate_random_number():
@@ -15,16 +30,16 @@ def generate_random_number():
 
 def select_forms(selection):
     all_forms = {
-        'All Games': 'ALL', 
-        'Powerball': '101',               # 7
-        'Powerball Double Play': '101D',  # 6
-        'MEGA Millions': '113',           # 6
-        'SuperLotto Plus': 'CA1',         # 6
-        'Fantasy 5': 'CA2',               # 5
-        'Daily Derby': 'CA3',             # 4
-        'Daily 4': 'CAB',                 # 4
-        'Daily 3 Midday': 'CAC',          # 3 
-        'Daily 3 Evening': 'CAA'          # 3
+        'all': 'ALL', 
+        'powerball': '101',               # 7
+        'powerball_double_play': '101D',  # 6
+        'mega_millions': '113',           # 6
+        'superlotto_plus': 'CA1',         # 6
+        'fantasy5': 'CA2',                # 5
+        'daily_derby': 'CA3',             # 4
+        'daily4': 'CAB',                  # 4
+        'daily3_midday': 'CAC',           # 3 
+        'daily3_evening': 'CAA'           # 3
     }
     
     return all_forms[selection]

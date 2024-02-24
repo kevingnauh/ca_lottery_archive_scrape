@@ -23,19 +23,23 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from web_scraper import extract_and_save_data , BeautifulSoup
-from utils import generate_random_number, time, select_forms
-
+from utils import generate_random_number, time, select_forms, parse_arguments
 
 # Inputs
+## Path to chromedriver
+path_to_chromedriver = "D:/Users/Documents/chromdriver/chromedriver-win64/chromedriver-win64/chromedriver.exe"
+
+args = parse_arguments()
+
 ## Select date range: datetime object or 'MM/DD/YYYY' 
-start_date = datetime.now() - relativedelta(years=1)
+if args.months:
+    start_date = datetime.now() - relativedelta(months=args.months)
+elif args.years:
+    start_date = datetime.now() - relativedelta(years=args.years)
 end_date = datetime.now()  
 
 ## Select lotto type
-lotto_type = 'MEGA Millions'
-
-## Path to your chromedriver
-path_to_chromedriver = 'D:/Users/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe'
+lotto_type = args.lotto_type
 
 ## Webpage url
 page_url = "https://www.lottostrategies.com/cgi-bin/winning_select_state/205/CA/california-lottery-numbers-archive.html"
