@@ -3,6 +3,12 @@
 import os
 import json
 from web_scraper import create_folder_path
+import argparse
+
+parser = argparse.ArgumentParser(description='Combine monthly json files to 1 master file')
+parser.add_argument('--outname', dest='output_file_name', type=str,
+                        help='Specify name for output file.')
+args = parser.parse_args()
 
 def combine_json_files(output_path):
     # define directory path
@@ -18,7 +24,7 @@ def combine_json_files(output_path):
                 data = json.load(file)
                 all_data.extend(data)
 
-    output_file = 'combined_data.json'
+    output_file = f"{args.output_file_name}.json" if args.output_file_name else 'combined_data.json'
     subfolder = "output/combined_data"
     filepath = create_folder_path(output_file, subfolder)
 

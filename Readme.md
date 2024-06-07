@@ -30,7 +30,11 @@ python src/main.py --help
 
 
 ## Additional 
-Run the following script to combine the monthly json files into 1 dataset for analysis. 
+Run the following script to combine the monthly json files into 1 file for analysis. 
 ```python
 python src/combine_json.py
+```
+Run the following to specify a name for the output file using the --outname option.
+```python
+python src/combine_json.py --outname <output_file_name>
 ```

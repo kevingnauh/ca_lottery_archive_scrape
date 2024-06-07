@@ -27,7 +27,7 @@ from utils import generate_random_number, time, select_forms, parse_arguments
 
 # Inputs
 ## Path to chromedriver
-path_to_chromedriver = "D:/Users/Documents/chromdriver/chromedriver-win64/chromedriver-win64/chromedriver.exe"
+path_to_chromedriver = "chromedriver-win64\chromedriver.exe"
 
 args = parse_arguments()
 
